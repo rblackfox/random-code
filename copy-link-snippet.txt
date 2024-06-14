@@ -1,0 +1,25 @@
+//copy link on click with message "copied" //
+// link terst
+<span style="background-color: var( --e-global-color-accent );"><p id="myText">FIRST20</p></span>
+
+//copy code
+<center>
+  <a id="20-off-reveal-popup" href="#" onclick="copyContent()" style="color:white" class="20-off-reveal-popup">copy code</a>
+  <span id="tooltip" style="display:none; color: #F5F5F5; font-size: 11px ">copied!</span>
+  <script>
+    let text = document.getElementById('myText').innerHTML;
+    const copyContent = async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        console.log('Content copied to clipboard');
+        const tooltip = document.getElementById("tooltip");
+        tooltip.style.display = "inline-block";
+        setTimeout(() => {
+          tooltip.style.display = "none";
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy: ', err);
+      }
+    }
+  </script>
+  </center>
